@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Program</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+    <div class="container">
+        <h2>Hello,</h2>
+        <h3>This program takes an input from you and returns the factorial!</h3>
+        <input type="number" id="numericInput" name="numericInput">
+        <div class="btn">
+            <button id="calculateFactorial" onclick="
+
+                let number = document.getElementById('numericInput').value;
+                console.log(calculateFactorial(number));
+                
+                ">Calculate factorial</button>
+            <button id="clearInputBox">Clear</button>
+        </div>
+
+    </div>
+
+    <script>
+
+        function calculateFactorial (n) {
+            if (n < 0) {
+                return "Factorial is not defined for negative numbers.";
+            }
+            else if ( n === 0 || n === 1) {
+                return 1;
+            }
+            else {
+                let result = 1;
+
+                for (let i = 2; i <= n; i++) {
+                    result *= i;
+                }
+
+                return result;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
