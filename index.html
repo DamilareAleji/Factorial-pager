@@ -16,25 +16,35 @@
         <div class="btn">
             <button id="calculateFactorial" onclick="
 
-                let number = document.getElementById('numericInput').value;
-                console.log(calculateFactorial(number));
+                let userInput = document.getElementById('numericInput').value;
+
+                if ( userInput < 0 ) {
+                    document.getElementById('output').textContent = `Factorial is not defined for negative numbers! Please re-check your input!`;
+                }
+                else if ( userInput === 0 || userInput === 1 ) {
+                    document.getElementById('output').textContent = `The factorial of ${userInput} is 1`;
+                }
+                else {
+                    document.getElementById('output').textContent = `The factorial of ${userInput} is ${calculateFactorial(userInput)}`;
+                }
                 
                 ">Calculate factorial</button>
-            <button id="clearInputBox">Clear</button>
+            <button id="clearInputBox" onclick="
+            
+            document.getElementById('numericInput').value = null;
+            
+            ">Clear</button>
+
+
         </div>
+
+        <p id="output">The factorial will be displayed here!</p>
 
     </div>
 
     <script>
 
         function calculateFactorial (n) {
-            if (n < 0) {
-                return "Factorial is not defined for negative numbers.";
-            }
-            else if ( n === 0 || n === 1) {
-                return 1;
-            }
-            else {
                 let result = 1;
 
                 for (let i = 2; i <= n; i++) {
@@ -43,7 +53,6 @@
 
                 return result;
             }
-        }
 
 
     </script>
